@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType ;
 
 class EtudiantType extends AbstractType
 {
@@ -17,6 +18,7 @@ class EtudiantType extends AbstractType
         $builder
             ->add('nsc',TextareaType::class)
             ->add('email')
+            ->add('classroom', EntityType::class,['class'=>Classroom::class,'choice_label'=>'name'])
             ->add('save',SubmitType::class)
         ;
     }

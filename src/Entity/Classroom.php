@@ -34,16 +34,12 @@ class Classroom
      */
     private $etudiants;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Etudiant::class, mappedBy="classroom",cascade={"all"},orphanRemoval=true)
-     */
-    private $etudiant;
-
     public function __construct()
     {
-        $this->etudiant = new ArrayCollection();
-        $this->etudiant = new ArrayCollection();
+        $this->etudiants = new ArrayCollection();
     }
+
+
 
     public function getId(): ?int
     {
@@ -104,33 +100,5 @@ class Classroom
         return $this;
     }
 
-    /**
-     * @return Collection|Etudiant[]
-     */
-    public function getEtudiant(): Collection
-    {
-        return $this->etudiants;
-    }
 
-    public function addStudent(Etudiant $etudiant): self
-    {
-        if (!$this->etudiants->contains($etudiant)) {
-            $this->etudiants[] = $etudiant;
-            $etudiant->setClassroom($this);
-        }
-
-        return $this;
-    }
-
-    public function removeStudent(Etudiant $etudiant): self
-    {
-        if ($this->etudiants->removeElement($etudiant)) {
-            // set the owning side to null (unless already changed)
-            if ($etudiant->getClassroom() === $this) {
-                $etudiant->setClassroom(null);
-            }
-        }
-
-        return $this;
-    }
 }

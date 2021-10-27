@@ -26,6 +26,8 @@ class Etudiant
      */
     private $classroom;
 
+
+
     /**
      * @return mixed
      */
@@ -68,4 +70,6 @@ class Etudiant
 
         return $this;
     }
+
+
 }
