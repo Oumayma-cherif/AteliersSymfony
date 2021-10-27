@@ -37,9 +37,10 @@ class Etudiant
     /**
      * @param mixed $nsc
      */
-    public function setNsc($nsc): void
+    public function setNsc($nsc): self
     {
         $this->nsc = $nsc;
+        return $this;
     }
 
 
